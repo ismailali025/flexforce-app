@@ -7,26 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #111827; /* bg-gray-900 */
-        }
-        .hero-gradient {
-            background: radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.15), transparent 50%);
-        }
-        .card-gradient {
-            background: linear-gradient(145deg, #1f2937, #111827);
-            border: 1px solid #374151; /* border-gray-700 */
-        }
-        .modal-backdrop {
-            background-color: rgba(0,0,0,0.75);
-        }
-        .tab-active {
-            background-color: #3b82f6 !important; /* bg-blue-600 */
-            color: white !important;
-        }
-    </style>
+    <link rel="stylesheet" href="flexforce.css">
 </head>
 <body class="text-gray-200">
 
@@ -214,8 +195,6 @@
                         </div>
                     </div>
                 </div>
-
-
             </div>
         </section>
 
@@ -249,7 +228,6 @@
                 </div>
             </div>
         </section>
-
     </main>
 
     <!-- Footer -->
@@ -288,7 +266,6 @@
             </div>
         </div>
     </footer>
-
 
     <!-- Modal for Posting Event -->
     <div id="event-modal" class="fixed inset-0 z-50 items-center justify-center hidden">
@@ -337,58 +314,6 @@
       </div>
     </div>
 
-
-    <script>
-        lucide.createIcons();
-
-        // Modal logic
-        const modal = document.getElementById('event-modal');
-        const modalBackdrop = document.getElementById('modal-backdrop');
-        const postEventBtn = document.getElementById('post-event-btn');
-
-        function openModal() {
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
-            document.body.classList.add('overflow-hidden');
-        }
-
-        function closeModal() {
-            modal.classList.add('hidden');
-            modal.classList.remove('flex');
-            document.body.classList.remove('overflow-hidden');
-        }
-        
-        postEventBtn.addEventListener('click', openModal);
-        modalBackdrop.addEventListener('click', closeModal);
-        document.addEventListener('keydown', (event) => {
-            if (event.key === 'Escape' && !modal.classList.contains('hidden')) {
-                closeModal();
-            }
-        });
-
-        // Dashboard Toggle Logic
-        const clientViewBtn = document.getElementById('client-view-btn');
-        const gymViewBtn = document.getElementById('gym-view-btn');
-        const clientView = document.getElementById('client-view');
-        const gymView = document.getElementById('gym-view');
-
-        clientViewBtn.addEventListener('click', () => {
-            clientView.classList.remove('hidden');
-            gymView.classList.add('hidden');
-            clientViewBtn.classList.add('tab-active');
-            gymViewBtn.classList.remove('tab-active');
-            gymViewBtn.classList.add('text-gray-400', 'hover:bg-gray-700');
-        });
-
-        gymViewBtn.addEventListener('click', () => {
-            gymView.classList.remove('hidden');
-            clientView.classList.add('hidden');
-            gymViewBtn.classList.add('tab-active');
-            clientViewBtn.classList.remove('tab-active');
-            clientViewBtn.classList.add('text-gray-400', 'hover:bg-gray-700');
-        });
-        
-    </script>
+    <script src="flexforce.js"></script>
 </body>
 </html>
-
